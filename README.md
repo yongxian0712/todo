@@ -9,4 +9,4 @@ Do the following to setup and use the frontend
 3. Go to `app/js/actions/index.js` and update the `API_URL` with the endpoint of your deployed `todo` Serverless service (e.g. `https://somestring.execute-api.us-east-1.amazonaws.com/dev/todos`)
 4. Run `npm start`
 5. Open up a browser on [localhost:8080](http://localhost:8080) and play around with the application
-# todo
+
