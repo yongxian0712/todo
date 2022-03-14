@@ -84,11 +84,13 @@ class TodosIndex extends Component {
 
     const id = event.currentTarget.getAttribute('data-todo-id');
     const body = event.currentTarget.getAttribute('data-todo-body');
+    const dueDate = event.currentTarget.getAttribute('data-todo-dueDate');
     const isDone = "true";
   
     const todo = {
       id,
       body,
+      dueDate,
       isDone
     }
 
@@ -100,11 +102,13 @@ class TodosIndex extends Component {
 
     const id = event.currentTarget.getAttribute('data-todo-id');
     const body = event.currentTarget.getAttribute('data-todo-body');
+    const dueDate = event.currentTarget.getAttribute('data-todo-dueDate');
     const isDone = "false";
   
     const todo = {
       id,
       body,
+      dueDate,
       isDone
     }
 
@@ -154,11 +158,11 @@ class TodosIndex extends Component {
               { sortedTodos.map((todo) => {
                   return (
                       <li key={`todo-${todo.id}`}>
-                        <input style={checkboxStyles} data-todo-id={todo.id} data-todo-body={todo.body} type="checkbox" checked={todo.isDone=="true"} onChange={this.filterCompleted.bind(this)}/>
+                        <input style={checkboxStyles} data-todo-id={todo.id} data-todo-body={todo.body} data-todo-dueDate={todo.dueDate} type="checkbox" checked={todo.isDone=="true"} onChange={this.filterCompleted.bind(this)}/>
                         <span data-todo-id={todo.id} contentEditable="true" onBlur={this.updateTodo.bind(this)}>{todo.body}</span>
                         <a style={deleteTodoStyles} href='#' data-todo-id={todo.id} onClick={this.deleteTodo.bind(this)}>Delete</a>
                         <label style={dueDateStyles}>Due Date: </label>
-                        <input style={dueDateStyles} type="datetime-local" ref="datetime" data-todo-id={todo.id} data-todo-body={todo.body} data-todo-isDone={todo.isDone} onChange={this.setDueDate.bind(this)} value={todo.dueDate}/>
+                        <input style={dueDateStyles} type="datetime-local" ref="datetime" data-todo-id={todo.id} data-todo-body={todo.body} data-todo-isDone={todo.isDone} data-todo-dueDate={todo.dueDate} onChange={this.setDueDate.bind(this)} value={todo.dueDate}/>
                       </li>
                   )
                 }
